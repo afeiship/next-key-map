@@ -33,16 +33,14 @@ describe('next/keyMap', function () {
       key:'label__value',
     });
 
-    console.log(rs);
 
-    assert.deepEqual(rs[0].child,[{
-      label__value: 'hangzhou',
-      name: 'Hangzhou',
-      child: [{
+    assert.deepEqual(
+      rs[0].child[0].child,
+      [{
         label__value: 'xihu',
         name: 'West Lake',
-      }],
-    }] );
+      }]
+    );
   });
 
 
@@ -60,13 +58,29 @@ describe('next/keyMap', function () {
       desc:'description'
     });
 
-    console.log(rs);
-
-    assert.deepEqual(rs[0].child,{
+    assert.deepEqual(rs,{
       id: '1',
       value: 'Zhong Hua Men',
       description: 'lsjdflsjdflsdjflsjdf'
     } );
+  });
+
+
+
+  it('nx.keyMap -> create a new object, but not change the data', function () {
+    var data = {
+      key: '1',
+      name: 'Zhong Hua Men',
+      desc: 'lsjdflsjdflsdjflsjdf'
+    };
+
+    var rs = nx.keyMap( data,{
+      key:'id',
+      name:'value',
+      desc:'description'
+    });
+
+    assert.equal( data === rs, false );
   });
 
 });

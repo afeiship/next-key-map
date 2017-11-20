@@ -4,6 +4,30 @@ require('../src/next-key-map');
 
 describe('next/keyMap', function () {
 
+
+  it('nx.keyMap -> replace array keys', function () {
+    var data = [
+      {"code":"A_T_01","name":"藏传"},
+      {"code":"A_T_02","name":"珠玉"},
+      {"code":"A_T_03","name":"钱币"}
+    ];
+
+    var rs = nx.keyMap( data, {
+      code: 'route',
+      name: 'content'
+    });
+
+
+    assert.deepEqual( rs ,
+      [
+        {"route":"A_T_01","content":"藏传"},
+        {"route":"A_T_02","content":"珠玉"},
+        {"route":"A_T_03","content":"钱币"}
+      ]
+    );
+  });
+
+
   it('nx.keyMap -> for array', function () {
     var data = [{
       key: 'zhejiang',

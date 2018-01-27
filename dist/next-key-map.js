@@ -12,7 +12,7 @@
       destKey = inMap[key] || key;
       result[ destKey ] = value;
 
-      if( typeof value === OBJECT ){
+      if(value && typeof value === OBJECT ){
         result[ destKey ] = nx.keyMap( value, inMap );
       }
     });

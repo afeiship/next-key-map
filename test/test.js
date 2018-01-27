@@ -107,5 +107,25 @@ describe('next/keyMap', function () {
     assert.equal( data === rs, false );
   });
 
+  it('nx.keyMap -> with null key', function () {
+    var data = {
+      key: '1',
+      name: null,
+      desc: 'lsjdflsjdflsdjflsjdf'
+    };
+
+    var rs = nx.keyMap( data,{
+      key:'id',
+      name:'value',
+      desc:'description'
+    });
+
+    assert.deepEqual(rs,{
+      id: '1',
+      value: null,
+      description: 'lsjdflsjdflsdjflsjdf'
+    } );
+  });
+
 });
 

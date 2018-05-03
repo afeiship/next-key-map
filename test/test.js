@@ -137,7 +137,8 @@ describe('next/keyMap', function () {
     var rs = nx.keyMap(obj, {
       id: 'value',
       name: 'label'
-    });
+    },true);
+
 
     assert.deepEqual(
       rs,
@@ -147,8 +148,7 @@ describe('next/keyMap', function () {
         otherValue: 'test value',
         value: '1',
         label: 'fei'
-      },
-      true
+      }
     )
   });
 
@@ -166,27 +166,34 @@ describe('next/keyMap', function () {
         otherValue: 'test value by array'
       }
     ];
+
     var rs = nx.keyMap(arr, {
       id: 'value',
       name: 'label'
     },true);
 
+
+    console.log(rs);
+
+
     assert.deepEqual(
       rs,
-      {
-        id: '1',
-        name: 'fei',
-        otherValue: 'test value',
-        value: '1',
-        label: 'fei'
-      },
-      {
-        id: '2',
-        name: 'fei',
-        otherValue: 'test value',
-        value: '2',
-        label: 'afeiship'
-      }
+      [
+        {
+          id: '1',
+          name: 'fei',
+          otherValue: 'test value',
+          value: '1',
+          label: 'fei'
+        },
+        {
+          id: '2',
+          name: 'afeiship',
+          otherValue: 'test value by array',
+          value: '2',
+          label: 'afeiship'
+        }
+      ]
     )
   });
 

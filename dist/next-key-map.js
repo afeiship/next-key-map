@@ -4,16 +4,18 @@
   var nx = global.nx || require('next-js-core2');
   var OBJECT = 'object';
 
-  nx.keyMap = function (inTarget, inMap) {
+
+  nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
     var destKey;
-    var result = ( inTarget instanceof Array ) ? [] : {};
+    var result = (inTarget instanceof Array) ? [] : {};
 
-    nx.each( inTarget, function(key,value) {
+    nx.each(inTarget, function (key, value) {
       destKey = inMap[key] || key;
-      result[ destKey ] = value;
+      result[destKey] = value;
+      inIsKeepOld && (result[key] = inTarget[key])
 
-      if(value && typeof value === OBJECT ){
-        result[ destKey ] = nx.keyMap( value, inMap );
+      if (value && typeof value === OBJECT) {
+        result[destKey] = nx.keyMap(value, inMap, inIsKeepOld);
       }
     });
 

@@ -15,7 +15,7 @@
       inIsKeepOld && (result[key] = inTarget[key])
 
       if (value && typeof value === OBJECT) {
-        result[destKey] = nx.keyMap(value, inMap);
+        result[destKey] = nx.keyMap(value, inMap, inIsKeepOld);
       }
     });
 

@@ -127,5 +127,68 @@ describe('next/keyMap', function () {
     } );
   });
 
+
+  it('nx.keyMap replace & keep old value - target:object', function () {
+    var obj = {
+      id: '1',
+      name: 'fei',
+      otherValue: 'test value'
+    };
+    var rs = nx.keyMap(obj, {
+      id: 'value',
+      name: 'label'
+    });
+
+    assert.deepEqual(
+      rs,
+      {
+        id: '1',
+        name: 'fei',
+        otherValue: 'test value',
+        value: '1',
+        label: 'fei'
+      },
+      true
+    )
+  });
+
+
+  it('nx.keyMap replace & keep old value - target:array', function () {
+    var arr = [
+      {
+        id: '1',
+        name: 'fei',
+        otherValue: 'test value'
+      },
+      {
+        id: '2',
+        name: 'afeiship',
+        otherValue: 'test value by array'
+      }
+    ];
+    var rs = nx.keyMap(arr, {
+      id: 'value',
+      name: 'label'
+    },true);
+
+    assert.deepEqual(
+      rs,
+      {
+        id: '1',
+        name: 'fei',
+        otherValue: 'test value',
+        value: '1',
+        label: 'fei'
+      },
+      {
+        id: '2',
+        name: 'fei',
+        otherValue: 'test value',
+        value: '2',
+        label: 'afeiship'
+      }
+    )
+  });
+
 });
 

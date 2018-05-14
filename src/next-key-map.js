@@ -3,14 +3,15 @@
   var global = global || this || self || window;
   var nx = global.nx || require('next-js-core2');
   var OBJECT = 'object';
+  var FUNCTION = 'function';
 
 
   nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
     var destKey;
     var result = (inTarget instanceof Array) ? [] : {};
 
-    nx.each(inTarget, function (key, value) {
-      destKey = inMap[key] || key;
+    nx.each(inTarget, function (key, value, item) {
+      destKey = (typeof inMap === FUNCTION ? inMap(key,value,item) : inMap[key]) || key;
       result[destKey] = value;
       inIsKeepOld && (result[key] = inTarget[key])
 

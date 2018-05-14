@@ -173,8 +173,6 @@ describe('next/keyMap', function () {
     },true);
 
 
-    console.log(rs);
-
 
     assert.deepEqual(
       rs,
@@ -194,6 +192,28 @@ describe('next/keyMap', function () {
           label: 'afeiship'
         }
       ]
+    )
+  });
+
+
+
+  it('nx.keyMap replace with function', function () {
+    var map = {
+      'src/pages/customer/home/app': '././src/pages/customer/home/app.js',
+      'src/pages/home/app': '././src/pages/home/app.js'
+    };
+
+    var rs = nx.keyMap(map,  function(key){
+      return key.slice(10,-4);
+    });
+
+
+    assert.deepEqual(
+      rs,
+      {
+        'customer/home': '././src/pages/customer/home/app.js',
+        'home': '././src/pages/home/app.js'
+      }
     )
   });
 

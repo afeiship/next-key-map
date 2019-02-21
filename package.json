@@ -1,6 +1,6 @@
 {
   "name": "next-key-map",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Recursion replace object key use map.",
   "homepage": "https://github.com/afeiship/next-key-map",
   "author": {
@@ -19,7 +19,6 @@
     "gulp-concat": "^2.6.0",
     "gulp-load-plugins": "^1.2.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.1.2",
     "yargs": "^4.7.1",

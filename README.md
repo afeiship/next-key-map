@@ -1,32 +1,32 @@
 # next-key-map
-> Recursion replace object key use map.
+> Recursion replace object key use map
 
-## install:
+## installation
 ```bash
 npm install -S afeiship/next-key-map --registry=https://registry.npm.taobao.org
 ```
 
-## apis:
+## apis
 | API    | TYPE                    | DESCRIPTION          |
 |--------|-------------------------|----------------------|
 | keyMap | { sourceKey: targetKey} | Map source to target |
 
-## usage:
+## usage
 ```js
-var data = {
+const data = {
   key: '1',
   name: 'Zhong Hua Men',
   desc: 'lsjdflsjdflsdjflsjdf'
 };
 
-var rs = nx.keyMap( data,{
+const rs = nx.keyMap( data,{
   key:'id',
   name:'value',
   desc:'description'
 });
 
 // results:
-var data = {
+const data = {
   id: '1',
   value: 'Zhong Hua Men',
   desc: 'lsjdflsjdflsdjflsjdf'

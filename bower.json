@@ -1,6 +1,7 @@
 {
   "name": "next-key-map",
-  "description": "Recursion replace object key use map.",
+  "version": "0.0.1",
+  "description": "Recursion replace object key use map",
   "main": "dist/next-key-map.js",
   "authors": [
     "afei"
@@ -19,6 +20,7 @@
     "bower_components",
     "test",
     "tests",
+    "build",
     "src",
     "gulp",
     "gulpfile.js"

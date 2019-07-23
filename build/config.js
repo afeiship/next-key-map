@@ -1,10 +1,9 @@
-(function () {
-
+(function() {
   'use strict';
 
   const rootPath = process.cwd();
   const gulp = require('gulp');
-
+  const saveLicense = require('uglify-save-license');
 
   module.exports = {
     path: {
@@ -20,7 +19,11 @@
       minify: {
         outputStyle: 'compressed'
       }
+    },
+    uglifyOptions: {
+      output: {
+        comments: saveLicense
+      }
     }
   };
-
-}());
+})();

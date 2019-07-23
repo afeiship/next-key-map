@@ -1,7 +1,7 @@
 {
   "name": "next-key-map",
   "version": "1.0.0",
-  "description": "Recursion replace object key use map.",
+  "description": "Recursion replace object key use map",
   "homepage": "https://github.com/afeiship/next-key-map",
   "author": {
     "name": "afei",
@@ -9,20 +9,28 @@
   },
   "scripts": {
     "build": "gulp",
-    "test": "mocha"
+    "test": "jest",
+    "version": "gulp bump"
   },
   "main": "dist/next-key-map.js",
   "license": "MIT",
   "devDependencies": {
     "del": "^2.2.1",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
+    "gulp": "^4.0.2",
+    "gulp-bump": "^3.1.3",
+    "gulp-debug": "^4.0.0",
+    "gulp-header": "^2.0.7",
+    "gulp-ignore": "^2.0.2",
     "gulp-load-plugins": "^1.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^2.1.2",
+    "jest": "^23.6.0",
     "yargs": "^4.7.1",
-    "mocha": "^3.5.0"
+    "uglify-save-license": "^0.4.1",
+    "prettier": "^1.14.3",
+    "next-nice-comments": "github:afeiship/next-nice-comments"
   },
   "dependencies": {
     "next-js-core2": "github:afeiship/next-js-core2"

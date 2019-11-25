@@ -1,7 +1,7 @@
 {
-  "name": "next-key-map",
+  "name": "@feizheng/next-key-map",
   "version": "1.0.0",
-  "description": "Recursion replace object key use map",
+  "description": "Recursion replace object key use map.",
   "homepage": "https://github.com/afeiship/next-key-map",
   "author": {
     "name": "afei",
@@ -10,14 +10,15 @@
   "scripts": {
     "build": "gulp",
     "test": "jest",
-    "version": "gulp bump"
+    "start": "node ./express.js"
   },
   "main": "dist/next-key-map.js",
   "license": "MIT",
   "devDependencies": {
+    "@feizheng/next-nice-comments": "^1.0.0",
+    "@feizheng/rake-git": "^1.2.0",
     "del": "^2.2.1",
     "gulp": "^4.0.2",
-    "gulp-bump": "^3.1.3",
     "gulp-debug": "^4.0.0",
     "gulp-header": "^2.0.7",
     "gulp-ignore": "^2.0.2",
@@ -26,13 +27,15 @@
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^2.1.2",
-    "jest": "^23.6.0",
-    "yargs": "^4.7.1",
-    "uglify-save-license": "^0.4.1",
+    "jest": "^24.9.0",
     "prettier": "^1.14.3",
-    "next-nice-comments": "github:afeiship/next-nice-comments"
+    "uglify-save-license": "^0.4.1",
+    "yargs": "^4.7.1"
   },
   "dependencies": {
-    "next-js-core2": "github:afeiship/next-js-core2"
+    "@feizheng/next-js-core2": "^2.0.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

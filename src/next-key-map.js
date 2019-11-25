@@ -1,6 +1,6 @@
 (function() {
   var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('next-js-core2');
+  var nx = global.nx || require('@feizheng/next-js-core2');
   var OBJECT = 'object';
   var FUNCTION = 'function';
 

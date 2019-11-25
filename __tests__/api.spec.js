@@ -1,7 +1,7 @@
-var nx = require('next-js-core2');
+const nx = require('@feizheng/next-js-core2');
 require('../src/next-key-map');
 
-describe('next/keyMap', function() {
+describe('api.basic test', () => {
   test('nx.keyMap -> replace array keys', function() {
     var data = [
       { code: 'A_T_01', name: '藏传' },

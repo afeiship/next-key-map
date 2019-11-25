@@ -1,7 +1,7 @@
 {
   "name": "next-key-map",
   "version": "0.0.1",
-  "description": "Recursion replace object key use map",
+  "description": "nextBoilerplatePackageDescription",
   "main": "dist/next-key-map.js",
   "authors": [
     "afei"

@@ -1,9 +1,9 @@
 # next-key-map
-> Recursion replace object key use map
+> Recursion replace object key use map.
 
 ## installation
 ```bash
-npm install -S afeiship/next-key-map --registry=https://registry.npm.taobao.org
+npm install -S @feizheng/next-key-map
 ```
 
 ## apis
@@ -13,6 +13,8 @@ npm install -S afeiship/next-key-map --registry=https://registry.npm.taobao.org
 
 ## usage
 ```js
+import '@feizheng/next-key-map';
+
 const data = {
   key: '1',
   name: 'Zhong Hua Men',

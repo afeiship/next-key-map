@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/next-key-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursion replace object key use map.",
   "homepage": "https://github.com/afeiship/next-key-map",
   "author": {
@@ -16,24 +16,24 @@
   "license": "MIT",
   "devDependencies": {
     "@feizheng/next-nice-comments": "^1.0.0",
-    "@feizheng/rake-git": "^1.2.0",
-    "del": "^2.2.1",
+    "@feizheng/rake-git": "^1.2.1",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-debug": "^4.0.0",
-    "gulp-header": "^2.0.7",
-    "gulp-ignore": "^2.0.2",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-size": "^2.1.0",
+    "gulp-header": "^2.0.9",
+    "gulp-ignore": "^3.0.0",
+    "gulp-load-plugins": "^2.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^2.1.2",
-    "jest": "^24.9.0",
-    "prettier": "^1.14.3",
+    "gulp-uglify": "^3.0.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
     "uglify-save-license": "^0.4.1",
-    "yargs": "^4.7.1"
+    "yargs": "^15.1.0"
   },
   "dependencies": {
-    "@feizheng/next-js-core2": "^2.0.2"
+    "@feizheng/next-js-core2": "^2.4.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

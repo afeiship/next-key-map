@@ -2,35 +2,17 @@
   'use strict';
 
   const gulp = require('gulp');
-  const nx = require('@feizheng/next-js-core2');
-  const pkg = require('../package.json');
   const saveLicense = require('uglify-save-license');
   const $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'gulp.*', 'del']
+    pattern: ['gulp-*', 'gulp.*', 'del', '@jswork/gulp-*']
   });
-
-  require('@feizheng/next-nice-comments');
-
-  const niceComments = nx.niceComments(
-    [
-      'name: <%= pkg.name %>',
-      'url: <%= pkg.homepage %>',
-      'version: <%= pkg.version %>',
-      'date: ' + new Date().toISOString(),
-      'license: <%= pkg.license %>'
-    ],
-    'js'
-  );
 
   gulp.task('scripts', function() {
     return gulp
       .src('src/*.js')
-      .pipe($.sourcemaps.init())
-      .pipe($.header(niceComments, { pkg: pkg }))
-      .pipe($.sourcemaps.write('.'))
+      .pipe($.jswork.pkgHeader())
       .pipe(gulp.dest('dist'))
       .pipe($.size({ title: '[ default size ]:' }))
-      .pipe($.ignore('*.js.map'))
       .pipe($.uglify({ output: { comments: saveLicense } }))
       .pipe($.rename({ extname: '.min.js' }))
       .pipe(gulp.dest('dist'))

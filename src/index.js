@@ -1,14 +1,14 @@
-(function() {
+(function () {
   var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('@feizheng/next-js-core2');
+  var nx = global.nx || require('@jswork/next');
   var OBJECT = 'object';
   var FUNCTION = 'function';
 
-  nx.keyMap = function(inTarget, inMap, inIsKeepOld) {
+  nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
     var destKey;
     var result = inTarget instanceof Array ? [] : {};
 
-    nx.each(inTarget, function(key, value, item) {
+    nx.each(inTarget, function (key, value, item) {
       destKey = (typeof inMap === FUNCTION ? inMap(key, value, item) : inMap[key]) || key;
       result[destKey] = value;
       inIsKeepOld && (result[key] = inTarget[key]);

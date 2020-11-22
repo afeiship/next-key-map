@@ -3,6 +3,23 @@
 **/npm-debug.log
 **/node_modules
 test
+__tests__
 src
 build
+docs
 gulpfile.js
+
+.editorconfig
+.prettierrc
+Gemfile
+jest.config.js
+LICENSE.txt
+Rakefile
+express.js
+.vscode
+.release-it.json
+
+
+# vscode localhistory
+.history
+.release-it.json

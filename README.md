@@ -36,7 +36,7 @@ const rs = nx.keyMap( data,{
 const data = {
   id: '1',
   value: 'Zhong Hua Men',
-  desc: 'lsjdflsjdflsdjflsjdf'
+  description: 'lsjdflsjdflsdjflsjdf'
 };
 ```
 

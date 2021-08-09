@@ -3,14 +3,32 @@
   var nx = global.nx || require('@jswork/next');
   var OBJECT = 'object';
   var FUNCTION = 'function';
+  var UNDEF = 'undefined';
+  var DOT = '.';
 
   nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
     var destKey;
     var result = inTarget instanceof Array ? [] : {};
+    var hasDeepPath = Object.keys(inMap).some(function (key) {
+      return key.includes(DOT);
+    });
 
-    nx.each(inTarget, function (key, value, item) {
+    nx.each(inTarget, function (key, value, item, isArray) {
       destKey = (typeof inMap === FUNCTION ? inMap(key, value, item) : inMap[key]) || key;
-      result[destKey] = value;
+      if (!hasDeepPath) {
+        result[destKey] = value;
+      } else {
+        !isArray &&
+          nx.forIn(inMap, function (src, dst) {
+            var dstValue = nx.get(item, src);
+            if (typeof dstValue === UNDEF) {
+              result[key] = value;
+            } else {
+              result[dst] = dstValue;
+            }
+          });
+      }
+
       inIsKeepOld && (result[key] = inTarget[key]);
 
       if (value && typeof value === OBJECT) {

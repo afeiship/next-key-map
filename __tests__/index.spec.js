@@ -205,5 +205,76 @@
         home: '././src/pages/home/app.js'
       });
     });
+
+    test('nx.keyMap support dot.path', () => {
+      const items = [
+        {
+          id: 15,
+          status: 'W',
+          student: { id: 3, realname: '小明', photo: 'default-avatar.png' }
+        },
+        {
+          id: 65,
+          status: 'R',
+          student: { id: 7, realname: '测试3号', photo: 'default-avatar.png' }
+        },
+        { id: 115, status: 'R', student: { id: 8, realname: 'H彩', photo: 'default-avatar.png' } }
+      ];
+
+      const res1 = nx.keyMap(items, {
+        'student.id': 'value',
+        'student.realname': 'label'
+      });
+
+      const res2 = nx.keyMap(
+        items,
+        {
+          'student.id': 'value',
+          'student.realname': 'label'
+        },
+        true
+      );
+
+      expect(res1).toEqual([
+        {
+          value: 3,
+          label: '小明',
+          student: { id: 3, realname: '小明', photo: 'default-avatar.png' }
+        },
+        {
+          value: 7,
+          label: '测试3号',
+          student: { id: 7, realname: '测试3号', photo: 'default-avatar.png' }
+        },
+        {
+          value: 8,
+          label: 'H彩',
+          student: { id: 8, realname: 'H彩', photo: 'default-avatar.png' }
+        }
+      ]);
+      expect(res2).toEqual([
+        {
+          value: 3,
+          label: '小明',
+          id: 15,
+          status: 'W',
+          student: { id: 3, realname: '小明', photo: 'default-avatar.png' }
+        },
+        {
+          value: 7,
+          label: '测试3号',
+          id: 65,
+          status: 'R',
+          student: { id: 7, realname: '测试3号', photo: 'default-avatar.png' }
+        },
+        {
+          value: 8,
+          label: 'H彩',
+          id: 115,
+          status: 'R',
+          student: { id: 8, realname: 'H彩', photo: 'default-avatar.png' }
+        }
+      ]);
+    });
   });
 })();

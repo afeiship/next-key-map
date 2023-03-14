@@ -1,6 +1,7 @@
 (function () {
   var global = global || this || window || Function('return this')();
   var nx = global.nx || require('@jswork/next');
+  var str2obj = require('@jswork/str2kv');
   var OBJECT = 'object';
   var FUNCTION = 'function';
   var UNDEF = 'undefined';
@@ -9,17 +10,18 @@
   nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
     var destKey;
     var result = inTarget instanceof Array ? [] : {};
-    var hasDeepPath = Object.keys(inMap).some(function (key) {
+    var map = typeof inMap === 'string' ? str2obj(inMap) : inMap;
+    var hasDeepPath = Object.keys(map).some(function (key) {
       return key.includes(DOT);
     });
 
     nx.each(inTarget, function (key, value, item, isArray) {
-      destKey = (typeof inMap === FUNCTION ? inMap(key, value, item) : inMap[key]) || key;
+      destKey = (typeof map === FUNCTION ? map(key, value, item) : map[key]) || key;
       if (!hasDeepPath) {
         result[destKey] = value;
       } else {
         !isArray &&
-          nx.forIn(inMap, function (src, dst) {
+          nx.forIn(map, function (src, dst) {
             var dstValue = nx.get(item, src);
             if (typeof dstValue === UNDEF) {
               result[key] = value;
@@ -32,7 +34,7 @@
       inIsKeepOld && (result[key] = inTarget[key]);
 
       if (value && typeof value === OBJECT) {
-        result[destKey] = nx.keyMap(value, inMap, inIsKeepOld);
+        result[destKey] = nx.keyMap(value, map, inIsKeepOld);
       }
     });
 

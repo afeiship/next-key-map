@@ -29,7 +29,6 @@
     "gulp-uglify": "^3.0.2",
     "jest": "^26.6.3",
     "prettier": "^2.1.2",
-    "release-it": "^15.5.1",
     "uglify-js": "3.11.6",
     "uglify-save-license": "^0.4.1"
   },
@@ -41,5 +40,8 @@
     "key",
     "map",
     "next"
-  ]
+  ],
+  "dependencies": {
+    "@jswork/str2kv": "^1.0.1"
+  }
 }

@@ -277,4 +277,10 @@
       ]);
     });
   });
+
+  test('keymap can be in kv string', () => {
+    var obj = { id: 1, name: 'fei' };
+    var rs = nx.keyMap(obj, 'id:value; name:label');
+    expect(rs).toEqual({ value: 1, label: 'fei' });
+  });
 })();

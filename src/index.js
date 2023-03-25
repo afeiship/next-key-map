@@ -1,7 +1,7 @@
 (function () {
   var global = global || this || window || Function('return this')();
   var nx = global.nx || require('@jswork/next');
-  var str2obj = require('@jswork/str2kv');
+  var str2obj = require('@jswork/str2kv/dist/cjs');
   var OBJECT = 'object';
   var FUNCTION = 'function';
   var UNDEF = 'undefined';

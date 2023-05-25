@@ -1,45 +1,47 @@
-(function () {
-  var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('@jswork/next');
-  var OBJECT = 'object';
-  var FUNCTION = 'function';
-  var UNDEF = 'undefined';
-  var DOT = '.';
+import nx from '@jswork/next';
+import str2obj from '@jswork/str2obj';
 
-  nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
-    var destKey;
-    var result = inTarget instanceof Array ? [] : {};
-    var hasDeepPath = Object.keys(inMap).some(function (key) {
-      return key.includes(DOT);
-    });
+const OBJECT = 'object';
+const FUNCTION = 'function';
+const UNDEF = 'undefined';
+const DOT = '.';
 
-    nx.each(inTarget, function (key, value, item, isArray) {
-      destKey = (typeof inMap === FUNCTION ? inMap(key, value, item) : inMap[key]) || key;
-      if (!hasDeepPath) {
-        result[destKey] = value;
-      } else {
-        !isArray &&
-          nx.forIn(inMap, function (src, dst) {
-            var dstValue = nx.get(item, src);
-            if (typeof dstValue === UNDEF) {
-              result[key] = value;
-            } else {
-              result[dst] = dstValue;
-            }
-          });
-      }
+nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
+  let destKey;
+  const result = inTarget instanceof Array ? [] : {};
+  const map = typeof inMap === 'string' ? str2obj(inMap) : inMap;
+  const hasDeepPath = Object.keys(map).some(function (key) {
+    return key.includes(DOT);
+  });
 
-      inIsKeepOld && (result[key] = inTarget[key]);
+  nx.each(inTarget, function (key, value, item, isArray) {
+    destKey = (typeof map === FUNCTION ? map(key, value, item) : map[key]) || key;
+    if (!hasDeepPath) {
+      result[destKey] = value;
+    } else {
+      !isArray &&
+        nx.forIn(map, function (src, dst) {
+          var dstValue = nx.get(item, src);
+          if (typeof dstValue === UNDEF) {
+            result[key] = value;
+          } else {
+            result[dst] = dstValue;
+          }
+        });
+    }
 
-      if (value && typeof value === OBJECT) {
-        result[destKey] = nx.keyMap(value, inMap, inIsKeepOld);
-      }
-    });
+    inIsKeepOld && (result[key] = inTarget[key]);
 
-    return result;
-  };
+    if (value && typeof value === OBJECT) {
+      result[destKey] = nx.keyMap(value, map, inIsKeepOld);
+    }
+  });
 
-  if (typeof module !== 'undefined' && module.exports) {
-    module.exports = nx.keyMap;
-  }
-})();
+  return result;
+};
+
+if (typeof module !== 'undefined' && module.exports && typeof wx === 'undefined') {
+  module.exports = nx.keyMap;
+}
+
+export default nx.keyMap;

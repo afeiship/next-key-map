@@ -1,5 +1,5 @@
 import nx from '@jswork/next';
-import str2obj from '@jswork/str2obj';
+import str2obj from '@jswork/str2kv';
 
 const OBJECT = 'object';
 const FUNCTION = 'function';
@@ -7,10 +7,10 @@ const UNDEF = 'undefined';
 const DOT = '.';
 
 nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
-  let destKey;
-  const result = inTarget instanceof Array ? [] : {};
-  const map = typeof inMap === 'string' ? str2obj(inMap) : inMap;
-  const hasDeepPath = Object.keys(map).some(function (key) {
+  var destKey;
+  var result = inTarget instanceof Array ? [] : {};
+  var map = typeof inMap === 'string' ? str2obj(inMap) : inMap;
+  var hasDeepPath = Object.keys(map).some(function (key) {
     return key.includes(DOT);
   });
 

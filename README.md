@@ -13,7 +13,7 @@ npm install -S @jswork/next-key-map
 
 ## apis
 | API    | TYPE                    | DESCRIPTION          |
-| ------ | ----------------------- | -------------------- |
+|--------|-------------------------|----------------------|
 | keyMap | { sourceKey: targetKey} | Map source to target |
 
 ## usage
@@ -31,6 +31,9 @@ const rs = nx.keyMap( data,{
   name:'value',
   desc:'description'
 });
+
+// or use id:value replacer
+const rs2 = nx.keyMap(data, 'key:id; name:value; desc:description');
 
 // results:
 const data = {

@@ -291,4 +291,14 @@ describe('api.basic test', () => {
       { value: 'ship', label: 'ship' }
     ]);
   });
+
+  test('raw only target array', () => {
+    var names = ['fei', 'afei', 'ship'];
+    var rs = nx.keyMap(names);
+    expect(rs).toEqual([
+      { value: 'fei', label: 'fei' },
+      { value: 'afei', label: 'afei' },
+      { value: 'ship', label: 'ship' }
+    ]);
+  })
 });

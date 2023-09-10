@@ -5,11 +5,14 @@ const OBJECT = 'object';
 const FUNCTION = 'function';
 const UNDEF = 'undefined';
 const DOT = '.';
+const ONLY_MAP = ['value', 'label'];
 
 nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
   var destKey;
   var result = inTarget instanceof Array ? [] : {};
+  var isOnlyTarget = arguments.length === 1;
   var map = typeof inMap === 'string' ? str2obj(inMap) : inMap;
+  map = isOnlyTarget ? ONLY_MAP : map;
 
   // target: [1,2,3] map: ['id','name']
   var isRawArray = Array.isArray(inTarget) && Array.isArray(map);

@@ -11,6 +11,7 @@ gulpfile.js
 
 .editorconfig
 .prettierrc
+.ncurc.json
 Gemfile
 jest.config.js
 jest.setup.js

@@ -281,4 +281,14 @@ describe('api.basic test', () => {
     var rs = nx.keyMap(obj, 'id:value; name:label');
     expect(rs).toEqual({ value: 1, label: 'fei' });
   });
+
+  test('raw string [] shoud be mapping to kv pairs', () => {
+    var names = ['fei', 'afei', 'ship'];
+    var rs = nx.keyMap(names, ['value', 'label']);
+    expect(rs).toEqual([
+      { value: 'fei', label: 'fei' },
+      { value: 'afei', label: 'afei' },
+      { value: 'ship', label: 'ship' }
+    ]);
+  });
 });

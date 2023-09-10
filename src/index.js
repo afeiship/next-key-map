@@ -10,6 +10,18 @@ nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
   var destKey;
   var result = inTarget instanceof Array ? [] : {};
   var map = typeof inMap === 'string' ? str2obj(inMap) : inMap;
+
+  // target: [1,2,3] map: ['id','name']
+  var isRawArray = Array.isArray(inTarget) && Array.isArray(map);
+  if (isRawArray) {
+    return inTarget.map(function (item) {
+      return map.reduce(function (acc, key) {
+        acc[key] = item;
+        return acc;
+      }, {});
+    });
+  }
+
   var hasDeepPath = Object.keys(map).some(function (key) {
     return key.includes(DOT);
   });

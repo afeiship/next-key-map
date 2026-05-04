@@ -55,8 +55,8 @@ nx.keyMap = function (inTarget, inMap, inIsKeepOld) {
   return result;
 };
 
-if (typeof module !== 'undefined' && module.exports && typeof wx === 'undefined') {
-  module.exports = nx.keyMap;
-}
+// if (typeof module !== 'undefined' && module.exports && typeof wx === 'undefined') {
+//   module.exports = nx.keyMap;
+// }
 
 export default nx.keyMap;

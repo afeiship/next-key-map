@@ -1,4 +1,4 @@
-require('../src');
+import '../src';
 
 describe('api.basic test', () => {
   test('nx.keyMap -> replace array keys', function () {
